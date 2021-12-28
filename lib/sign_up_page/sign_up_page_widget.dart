@@ -113,7 +113,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                     child: Container(
                       decoration: BoxDecoration(
                         color: Color(0xFFEEEEEE),
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(8),
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -124,7 +124,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                             children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    8, 16, 0, 16),
+                                    8, 13.5, 0, 13.5),
                                 child: Image.network(
                                   'https://picsum.photos/seed/167/600',
                                   width: 25,
@@ -168,6 +168,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           hintText: 'Phone Number',
+                          contentPadding: EdgeInsets.only(left: 12),
                           hintStyle: CamsolutionTheme.bodyText1.override(
                             fontFamily: 'NatoSansKhmer',
                             color: Color(0xFF696969),
@@ -178,14 +179,14 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                               color: Color(0x00000000),
                               width: 1,
                             ),
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
                               width: 1,
                             ),
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                           filled: true,
                           suffixIcon: textController!.text.isNotEmpty
@@ -221,7 +222,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                       text: 'Continue',
                       options: FFButtonOptions(
                         width: 130,
-                        height: 40,
+                        height: 45,
                         color: CamsolutionTheme.primaryColor,
                         textStyle: CamsolutionTheme.subtitle2.override(
                           fontFamily: 'NatoSansKhmer',

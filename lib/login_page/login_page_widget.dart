@@ -126,7 +126,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    8, 16, 0, 16),
+                                    8, 13.5, 0, 13.5),
                                 child: Image.network(
                                   'https://picsum.photos/seed/167/600',
                                   width: 25,
@@ -170,6 +170,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           hintText: 'Phone Number',
+                          contentPadding: EdgeInsets.only(left: 12),
                           hintStyle: CamsolutionTheme.bodyText1.override(
                             fontFamily: 'NatoSansKhmer',
                             color: Color(0xFF696969),
@@ -289,7 +290,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         text: 'Log in',
                         options: FFButtonOptions(
                           width: 130,
-                          height: 40,
+                          height: 45,
                           color: CamsolutionTheme.primaryColor,
                           textStyle: CamsolutionTheme.subtitle2.override(
                             fontFamily: 'NatoSansKhmer',
