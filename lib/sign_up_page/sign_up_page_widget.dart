@@ -1,6 +1,7 @@
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
+import 'package:camsolution_app/utilities/cam_solution_theme.dart';
+
+import '../utilities/flutter_flow_util.dart';
+import '../utilities/flutter_flow_widgets.dart';
 import '../login_page/login_page_widget.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -64,7 +65,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
               },
               child: Text(
                 'Log in',
-                style: FlutterFlowTheme.bodyText1.override(
+                style: CamsolutionTheme.bodyText1.override(
                   fontFamily: 'NatoSansKhmer',
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
@@ -92,7 +93,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
                     child: Text(
                       'Sign Up',
-                      style: FlutterFlowTheme.bodyText1.override(
+                      style: CamsolutionTheme.bodyText1.override(
                         fontFamily: 'NatoSansKhmer',
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
@@ -138,7 +139,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                     EdgeInsetsDirectional.fromSTEB(4, 0, 4, 0),
                                 child: Text(
                                   '+855',
-                                  style: FlutterFlowTheme.bodyText1,
+                                  style: CamsolutionTheme.bodyText1,
                                 ),
                               ),
                             ],
@@ -169,7 +170,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           hintText: 'Phone Number',
-                          hintStyle: FlutterFlowTheme.bodyText1.override(
+                          hintStyle: CamsolutionTheme.bodyText1.override(
                             fontFamily: 'NatoSansKhmer',
                             color: Color(0xFF696969),
                             useGoogleFonts: false,
@@ -202,7 +203,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                 )
                               : null,
                         ),
-                        style: FlutterFlowTheme.bodyText1,
+                        style: CamsolutionTheme.bodyText1,
                       ),
                     ),
                   ),
@@ -223,8 +224,8 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                       options: FFButtonOptions(
                         width: 130,
                         height: 40,
-                        color: FlutterFlowTheme.primaryColor,
-                        textStyle: FlutterFlowTheme.subtitle2.override(
+                        color: CamsolutionTheme.primaryColor,
+                        textStyle: CamsolutionTheme.subtitle2.override(
                           fontFamily: 'NatoSansKhmer',
                           color: Colors.white,
                           useGoogleFonts: false,
@@ -252,7 +253,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                       width: MediaQuery.of(context).size.width * 0.8,
                       height: 45,
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.primaryColor,
+                        color: CamsolutionTheme.primaryColor,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Row(
@@ -270,7 +271,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                           Spacer(),
                           Text(
                             'Continue with Facebook',
-                            style: FlutterFlowTheme.bodyText1.override(
+                            style: CamsolutionTheme.bodyText1.override(
                               fontFamily: 'NatoSansKhmer',
                               color: Colors.white,
                               useGoogleFonts: false,
@@ -313,7 +314,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                           Spacer(),
                           Text(
                             'Continue with  Apple',
-                            style: FlutterFlowTheme.bodyText1.override(
+                            style: CamsolutionTheme.bodyText1.override(
                               fontFamily: 'NatoSansKhmer',
                               color: Colors.white,
                               useGoogleFonts: false,
@@ -356,7 +357,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                           Spacer(),
                           Text(
                             'Continue with Google',
-                            style: FlutterFlowTheme.bodyText1.override(
+                            style: CamsolutionTheme.bodyText1.override(
                               fontFamily: 'NatoSansKhmer',
                               color: Colors.black,
                               useGoogleFonts: false,

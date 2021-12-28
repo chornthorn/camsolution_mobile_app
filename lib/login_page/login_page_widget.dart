@@ -1,10 +1,8 @@
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
+import '../utilities/cam_solution_theme.dart';
+import '../utilities/flutter_flow_widgets.dart';
 import '../sign_up_page/sign_up_page_widget.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class LoginPageWidget extends StatefulWidget {
   const LoginPageWidget({Key? key}) : super(key: key);
@@ -67,7 +65,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
               },
               child: Text(
                 'Sign Up',
-                style: FlutterFlowTheme.bodyText1.override(
+                style: CamsolutionTheme.bodyText1.override(
                   fontFamily: 'NatoSansKhmer',
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
@@ -95,7 +93,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
                     child: Text(
                       'Log in',
-                      style: FlutterFlowTheme.bodyText1.override(
+                      style: CamsolutionTheme.bodyText1.override(
                         fontFamily: 'NatoSansKhmer',
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
@@ -141,7 +139,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                     EdgeInsetsDirectional.fromSTEB(4, 0, 4, 0),
                                 child: Text(
                                   '+855',
-                                  style: FlutterFlowTheme.bodyText1,
+                                  style: CamsolutionTheme.bodyText1,
                                 ),
                               ),
                             ],
@@ -172,7 +170,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           hintText: 'Phone Number',
-                          hintStyle: FlutterFlowTheme.bodyText1.override(
+                          hintStyle: CamsolutionTheme.bodyText1.override(
                             fontFamily: 'NatoSansKhmer',
                             color: Color(0xFF696969),
                             useGoogleFonts: false,
@@ -205,7 +203,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                 )
                               : null,
                         ),
-                        style: FlutterFlowTheme.bodyText1,
+                        style: CamsolutionTheme.bodyText1,
                       ),
                     ),
                   ),
@@ -223,7 +221,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                       obscureText: !passwordVisibility,
                       decoration: InputDecoration(
                         hintText: 'Enter password',
-                        hintStyle: FlutterFlowTheme.bodyText1.override(
+                        hintStyle: CamsolutionTheme.bodyText1.override(
                           fontFamily: 'NatoSansKhmer',
                           color: Color(0xDC696969),
                           useGoogleFonts: false,
@@ -256,7 +254,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                           ),
                         ),
                       ),
-                      style: FlutterFlowTheme.bodyText1,
+                      style: CamsolutionTheme.bodyText1,
                     ),
                   ),
                 ),
@@ -270,7 +268,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                 children: [
                   Text(
                     'Forgot Password?',
-                    style: FlutterFlowTheme.bodyText1,
+                    style: CamsolutionTheme.bodyText1,
                   ),
                 ],
               ),
@@ -292,8 +290,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         options: FFButtonOptions(
                           width: 130,
                           height: 40,
-                          color: FlutterFlowTheme.primaryColor,
-                          textStyle: FlutterFlowTheme.subtitle2.override(
+                          color: CamsolutionTheme.primaryColor,
+                          textStyle: CamsolutionTheme.subtitle2.override(
                             fontFamily: 'NatoSansKhmer',
                             color: Colors.white,
                             useGoogleFonts: false,

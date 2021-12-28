@@ -1,10 +1,11 @@
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
+import 'package:camsolution_app/utilities/cam_solution_theme.dart';
+
+import '../utilities/cam_solution_theme.dart';
+
+import '../utilities/flutter_flow_widgets.dart';
 import '../login_page/login_page_widget.dart';
 import '../sign_up_page/sign_up_page_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class WelcomePageWidget extends StatefulWidget {
   const WelcomePageWidget({Key? key}) : super(key: key);
@@ -63,7 +64,7 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget> {
                 children: [
                   Text(
                     'Welcome to Autospace',
-                    style: FlutterFlowTheme.bodyText1.override(
+                    style: CamsolutionTheme.bodyText1.override(
                       fontFamily: 'NatoSansKhmer',
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -91,8 +92,8 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget> {
                         options: FFButtonOptions(
                           width: 130,
                           height: 40,
-                          color: FlutterFlowTheme.primaryColor,
-                          textStyle: FlutterFlowTheme.subtitle2.override(
+                          color: CamsolutionTheme.primaryColor,
+                          textStyle: CamsolutionTheme.subtitle2.override(
                             fontFamily: 'NatoSansKhmer',
                             color: Colors.white,
                             useGoogleFonts: false,
@@ -125,7 +126,7 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget> {
                       },
                       child: Text(
                         'Log into Autospace',
-                        style: FlutterFlowTheme.bodyText1,
+                        style: CamsolutionTheme.bodyText1,
                       ),
                     ),
                   ],
@@ -165,7 +166,7 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(12, 10, 12, 10),
                       child: Text(
                         'Skip',
-                        style: FlutterFlowTheme.bodyText1.override(
+                        style: CamsolutionTheme.bodyText1.override(
                           fontFamily: 'NatoSansKhmer',
                           color: Color(0xFFEAEFFF),
                           useGoogleFonts: false,

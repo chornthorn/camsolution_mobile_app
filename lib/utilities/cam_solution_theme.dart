@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // ignore: avoid_classes_with_only_static_members
-class FlutterFlowTheme {
+class CamsolutionTheme {
   static const Color primaryColor = Color(0xFF3474E0);
   static const Color secondaryColor = Color(0xFFEE8B60);
   static const Color tertiaryColor = Color(0xFFFFFFFF);
