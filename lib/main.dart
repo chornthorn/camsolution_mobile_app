@@ -1,6 +1,6 @@
+import 'package:camsolution_app/views/welcome_page/welcome_page_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:camsolution_app/welcome_page/welcome_page_widget.dart';
 
 void main() async {
   runApp(MyApp());

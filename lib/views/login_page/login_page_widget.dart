@@ -1,8 +1,7 @@
-import 'package:country_pickers/country.dart';
-import 'package:country_pickers/country_pickers.dart';
 
-import '../utilities/cam_solution_theme.dart';
-import '../utilities/cam_solution_widgets.dart';
+import 'package:camsolution_app/utilities/cam_solution_theme.dart';
+import 'package:camsolution_app/utilities/cam_solution_widgets.dart';
+
 import '../sign_up_page/sign_up_page_widget.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
