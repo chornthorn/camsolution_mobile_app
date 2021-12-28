@@ -19,6 +19,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
   TextEditingController? textController2;
   late bool passwordVisibility;
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -84,77 +85,155 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
       ),
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
-                    child: Text(
-                      'Log in',
-                      style: CamsolutionTheme.bodyText1.override(
-                        fontFamily: 'NatoSansKhmer',
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        useGoogleFonts: false,
+        child: Form(
+          key: formkey,
+          autovalidateMode: AutovalidateMode.always,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                      child: Text(
+                        'Log in',
+                        style: CamsolutionTheme.bodyText1.override(
+                          fontFamily: 'NatoSansKhmer',
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          useGoogleFonts: false,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 0, 8, 0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xFFEEEEEE),
-                          borderRadius: BorderRadius.circular(8),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(16, 0, 8, 0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xFFEEEEEE),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          padding: EdgeInsets.only(top: 0, bottom: 0),
+                          child: buildCountryPickerDropdown(context),
                         ),
-                        padding: EdgeInsets.only(top: 0, bottom: 0),
-                        child: buildCountryPickerDropdown(context),
                       ),
                     ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
-                      child: TextFormField(
-                        onChanged: (_) => EasyDebounce.debounce(
-                          'textController1',
-                          Duration(milliseconds: 2000),
-                          () => setState(() {}),
+                    Expanded(
+                      flex: 2,
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                        child: TextFormField(
+                          onChanged: (_) => EasyDebounce.debounce(
+                            'textController1',
+                            Duration(milliseconds: 2000),
+                            () => setState(() {}),
+                          ),
+                          validator: (val) {
+                            if(val != null)
+                            if (val.isEmpty) {
+                              return 'Required';
+                            }
+                            if(val != null)
+                            if (val.length < 8) {
+                              return 'Please enter valid phone number';
+                            }
+                            return null;
+                          },
+                          controller: textController1,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            hintText: 'Phone Number',
+                            contentPadding: EdgeInsets.only(left: 12, right: 12),
+                            hintStyle: CamsolutionTheme.bodyText1.override(
+                              fontFamily: 'NatoSansKhmer',
+                              color: Color(0xFF696969),
+                              useGoogleFonts: false,
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            filled: true,
+                            suffixIcon: textController1!.text.isNotEmpty
+                                ? InkWell(
+                                    onTap: () => setState(
+                                      () => textController1!.clear(),
+                                    ),
+                                    child: Icon(
+                                      Icons.clear,
+                                      color: Color(0xFF757575),
+                                      size: 22,
+                                    ),
+                                  )
+                                : null,
+                          ),
+                          style: CamsolutionTheme.bodyText1,
                         ),
-                        controller: textController1,
-                        obscureText: false,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                      child: TextFormField(
+                        controller: textController2,
+                        obscureText: !passwordVisibility,
+                        validator: (val) {
+                          if(val != null)
+                            if (val.isEmpty) {
+                              return 'Required';
+                            }
+                          if(val != null)
+                            if (val.length < 6) {
+                              return 'Password should be atleast 6 characters';
+                            }
+                          return null;
+                        },
                         decoration: InputDecoration(
-                          hintText: 'Phone Number',
-                          contentPadding: EdgeInsets.only(left: 12, right: 12),
+                          hintText: 'Enter password',
                           hintStyle: CamsolutionTheme.bodyText1.override(
                             fontFamily: 'NatoSansKhmer',
-                            color: Color(0xFF696969),
+                            color: Color(0xDC696969),
                             useGoogleFonts: false,
                           ),
-                          enabledBorder: OutlineInputBorder(
+
+                          enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
                               width: 1,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
-                          focusedBorder: OutlineInputBorder(
+                          focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
                               width: 1,
@@ -162,18 +241,18 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             borderRadius: BorderRadius.circular(8),
                           ),
                           filled: true,
-                          suffixIcon: textController1!.text.isNotEmpty
-                              ? InkWell(
-                                  onTap: () => setState(
-                                    () => textController1!.clear(),
-                                  ),
-                                  child: Icon(
-                                    Icons.clear,
-                                    color: Color(0xFF757575),
-                                    size: 22,
-                                  ),
-                                )
-                              : null,
+                          suffixIcon: InkWell(
+                            onTap: () => setState(
+                              () => passwordVisibility = !passwordVisibility,
+                            ),
+                            child: Icon(
+                              passwordVisibility
+                                  ? Icons.visibility_outlined
+                                  : Icons.visibility_off_outlined,
+                              color: Color(0xFF757575),
+                              size: 22,
+                            ),
+                          ),
                         ),
                         style: CamsolutionTheme.bodyText1,
                       ),
@@ -181,106 +260,61 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                   ),
                 ],
               ),
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
-                    child: TextFormField(
-                      controller: textController2,
-                      obscureText: !passwordVisibility,
-                      decoration: InputDecoration(
-                        hintText: 'Enter password',
-                        hintStyle: CamsolutionTheme.bodyText1.override(
-                          fontFamily: 'NatoSansKhmer',
-                          color: Color(0xDC696969),
-                          useGoogleFonts: false,
-                        ),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00000000),
-                            width: 1,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00000000),
-                            width: 1,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        filled: true,
-                        suffixIcon: InkWell(
-                          onTap: () => setState(
-                            () => passwordVisibility = !passwordVisibility,
-                          ),
-                          child: Icon(
-                            passwordVisibility
-                                ? Icons.visibility_outlined
-                                : Icons.visibility_off_outlined,
-                            color: Color(0xFF757575),
-                            size: 22,
-                          ),
-                        ),
-                      ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 12, 16, 0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      'Forgot Password?',
                       style: CamsolutionTheme.bodyText1,
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 12, 16, 0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'Forgot Password?',
-                    style: CamsolutionTheme.bodyText1,
-                  ),
-                ],
               ),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(16, 12.5, 16, 12.5),
-                      child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
-                        },
-                        text: 'Log in',
-                        options: FFButtonOptions(
-                          width: 130,
-                          height: 45,
-                          color: CamsolutionTheme.primaryColor,
-                          textStyle: CamsolutionTheme.subtitle2.override(
-                            fontFamily: 'NatoSansKhmer',
-                            color: Colors.white,
-                            useGoogleFonts: false,
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(16, 12.5, 16, 12.5),
+                        child: FFButtonWidget(
+                          onPressed: () {
+                            print('Button pressed ...');
+                            if (formkey.currentState!.validate()) {
+                              print("Validated");
+                            }else{
+                              print("Not Validated");
+                            }
+                          },
+                          text: 'Log in',
+                          options: FFButtonOptions(
+                            width: 130,
+                            height: 45,
+                            color: CamsolutionTheme.primaryColor,
+                            textStyle: CamsolutionTheme.subtitle2.override(
+                              fontFamily: 'NatoSansKhmer',
+                              color: Colors.white,
+                              useGoogleFonts: false,
+                            ),
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1,
+                            ),
+                            borderRadius: 8,
                           ),
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1,
-                          ),
-                          borderRadius: 8,
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
