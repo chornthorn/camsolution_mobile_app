@@ -24,6 +24,7 @@ dependencies:
 
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.4
+  country_pickers: ^2.0.0
 
 dev_dependencies:
 

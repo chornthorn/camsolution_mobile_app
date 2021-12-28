@@ -1,3 +1,6 @@
+import 'package:country_pickers/country.dart';
+import 'package:country_pickers/country_pickers.dart';
+import 'package:country_pickers/utils/utils.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -154,3 +157,78 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
     );
   }
 }
+
+buildCountryPickerDropdown(
+  context, {
+  bool filtered = false,
+  bool sortedByIsoCode = false,
+  bool hasPriorityList = false,
+}) {
+  double dropdownButtonWidth = MediaQuery.of(context).size.width * 0.5;
+  double dropdownItemWidth = dropdownButtonWidth - 30;
+  return Row(
+    children: <Widget>[
+      SizedBox(
+        child: CountryPickerDropdown(
+          onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+
+          isDense: false,
+
+          selectedItemBuilder: (Country country) =>
+              _buildDropdownSelectedItemBuilder(
+            country,
+          ),
+
+          itemBuilder: (Country country) =>
+              _buildDropdownItem(country, dropdownItemWidth),
+          initialValue: 'KH',
+          itemFilter: filtered
+              ? (c) => ['AR', 'DE', 'GB', 'CN'].contains(c.isoCode)
+              : null,
+          //priorityList is shown at the beginning of list
+          priorityList: hasPriorityList
+              ? [
+                  CountryPickerUtils.getCountryByIsoCode('GB'),
+                  CountryPickerUtils.getCountryByIsoCode('CN'),
+                ]
+              : null,
+          sortComparator: sortedByIsoCode
+              ? (Country a, Country b) => a.isoCode.compareTo(b.isoCode)
+              : null,
+          onValuePicked: (Country country) {
+            print("${country.name}");
+          },
+        ),
+      ),
+    ],
+  );
+}
+
+Widget _buildDropdownItem(Country country, double dropdownItemWidth) =>
+    SizedBox(
+      width: dropdownItemWidth,
+      child: Row(
+        children: <Widget>[
+          CountryPickerUtils.getDefaultFlagImage(country),
+          SizedBox(
+            width: 8.0,
+          ),
+          Expanded(child: Text("+${country.phoneCode}(${country.isoCode})")),
+        ],
+      ),
+    );
+
+Widget _buildDropdownSelectedItemBuilder(Country country) => SizedBox(
+      child: Padding(
+        padding: const EdgeInsets.all(8),
+        child: Row(
+          children: <Widget>[
+            CountryPickerUtils.getDefaultFlagImage(country),
+            SizedBox(
+              width: 8.0,
+            ),
+            Text('+${country.phoneCode}'),
+          ],
+        ),
+      ),
+    );

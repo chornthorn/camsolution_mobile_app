@@ -115,44 +115,8 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                         color: Color(0xFFEEEEEE),
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    8, 13.5, 0, 13.5),
-                                child: Image.network(
-                                  'https://picsum.photos/seed/167/600',
-                                  width: 25,
-                                  height: 20,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(4, 0, 4, 0),
-                                child: Text(
-                                  '+855',
-                                  style: CamsolutionTheme.bodyText1,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
-                            child: Icon(
-                              Icons.keyboard_arrow_down_rounded,
-                              color: Colors.black,
-                              size: 20,
-                            ),
-                          ),
-                        ],
-                      ),
+                      padding: EdgeInsets.only(top: 0, bottom: 0,right: 8),
+                      child: buildCountryPickerDropdown(context),
                     ),
                   ),
                   Expanded(
