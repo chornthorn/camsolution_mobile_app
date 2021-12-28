@@ -168,7 +168,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           hintText: 'Phone Number',
-                          contentPadding: EdgeInsets.only(left: 12),
+                          contentPadding: EdgeInsets.only(left: 12,right: 12),
                           hintStyle: CamsolutionTheme.bodyText1.override(
                             fontFamily: 'NatoSansKhmer',
                             color: Color(0xFF696969),

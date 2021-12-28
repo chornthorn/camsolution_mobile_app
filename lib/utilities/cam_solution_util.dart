@@ -49,8 +49,8 @@ enum DecimalType {
 
 String formatNumber(
   num value, {
-  FormatType? formatType,
-  DecimalType? decimalType,
+  required FormatType formatType,
+  required DecimalType decimalType,
   String? currency,
   bool toLowerCase = false,
   String? format,
