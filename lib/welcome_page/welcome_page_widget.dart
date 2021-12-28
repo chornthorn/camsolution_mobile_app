@@ -2,7 +2,7 @@ import 'package:camsolution_app/utilities/cam_solution_theme.dart';
 
 import '../utilities/cam_solution_theme.dart';
 
-import '../utilities/flutter_flow_widgets.dart';
+import '../utilities/cam_solution_widgets.dart';
 import '../login_page/login_page_widget.dart';
 import '../sign_up_page/sign_up_page_widget.dart';
 import 'package:flutter/material.dart';

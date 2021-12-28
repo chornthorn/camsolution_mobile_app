@@ -1,5 +1,5 @@
 import '../utilities/cam_solution_theme.dart';
-import '../utilities/flutter_flow_widgets.dart';
+import '../utilities/cam_solution_widgets.dart';
 import '../sign_up_page/sign_up_page_widget.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';

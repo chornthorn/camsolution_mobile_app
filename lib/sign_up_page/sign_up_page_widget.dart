@@ -1,12 +1,10 @@
 import 'package:camsolution_app/utilities/cam_solution_theme.dart';
 
-import '../utilities/flutter_flow_util.dart';
-import '../utilities/flutter_flow_widgets.dart';
+import '../utilities/cam_solution_widgets.dart';
 import '../login_page/login_page_widget.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class SignUpPageWidget extends StatefulWidget {
   const SignUpPageWidget({Key? key}) : super(key: key);
